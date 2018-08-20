@@ -7,6 +7,7 @@ class PostsNew extends Component {
       <div className="form-group">
         <label>{field.label}</label>
         <input className="form-control" type="text" {...field.input} />
+        {field.meta.error}
       </div>
     );
   }
@@ -46,7 +47,7 @@ function validate(values) {
     errors.categories = 'Enter some categories';
   }
   if (!values.content) {
-    errors.content = 'Enter some content ';
+    errors.content = 'Enter some content';
   }
 
   // If errors is empty, the form is fine to submit
