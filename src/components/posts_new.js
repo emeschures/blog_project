@@ -21,8 +21,6 @@ class PostsNew extends Component {
   }
 
   onSubmit(values) {
-    // this === component
-    // console.log(values);
     this.props.createPost(values, () => {
       this.props.history.push('/');
     });
@@ -60,7 +58,7 @@ class PostsNew extends Component {
 }
 
 function validate(values) {
-  // console.log(values)
+  // console.log(values) -> { title: 'asdf', categories: 'asdf', content: 'asdf' }
   const errors = {};
 
   // Validate the inputs from 'values'
@@ -71,11 +69,11 @@ function validate(values) {
     errors.categories = 'Enter some categories';
   }
   if (!values.content) {
-    errors.content = 'Enter some content';
+    errors.content = 'Enter some content please';
   }
 
   // If errors is empty, the form is fine to submit
-  // If errors has *any* properties, redux form assumes from is invalid
+  // If errors has *any* properties, redux form assumes form is invalid
   return errors;
 }
 
